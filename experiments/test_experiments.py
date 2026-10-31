@@ -1,12 +1,15 @@
 import unittest
+from types import SimpleNamespace
 
 import numpy as np
 import torch
 
 from run_experiments import (
-    Encoder, choose_references, empirical_w2, make_data,
-    reconstruction_loss, schedule,
+    Encoder, Denoiser, choose_references, empirical_w2, make_data,
+    reconstruction_loss, schedule, forward_noise, reverse_mean,
+    fit_diffusion, sample_diffusion,
 )
+from diagnose_training import geometry_metrics
 
 
 class ExperimentTests(unittest.TestCase):
@@ -110,6 +113,89 @@ class ExperimentTests(unittest.TestCase):
         self.assertLess(alpha_bar[-1].item(), 0.001)
         self.assertEqual(variance[0].item(), 0)
         self.assertTrue(torch.all(variance >= 0))
+
+    def test_forward_noise_moments(self):
+        generator = torch.Generator().manual_seed(10)
+        _, _, alpha_bar, _ = schedule(200, torch.device("cpu"))
+        clean = torch.full((20000, 2), 2.0)
+        noise = torch.randn(clean.shape, generator=generator)
+        t = torch.full((len(clean),), 70, dtype=torch.long)
+        noisy = forward_noise(clean, noise, t, alpha_bar)
+        self.assertAlmostEqual(noisy.mean().item(), (2 * alpha_bar[70].sqrt()).item(), delta=0.015)
+        self.assertAlmostEqual(noisy.var().item(), (1 - alpha_bar[70]).item(), delta=0.015)
+
+    def test_reverse_mean_matches_posterior_coefficients(self):
+        # Independent x0-posterior parameterization, as in the DDPM reference.
+        beta, alpha, alpha_bar, _ = schedule(200, torch.device("cpu"))
+        values = torch.tensor([[0.3, -0.8], [1.0, 0.1]], dtype=torch.float64)
+        epsilon = torch.tensor([[0.2, 0.4], [-0.3, 0.5]], dtype=torch.float64)
+        for step in (1, 10, 70, 199):
+            b, a, cumulative = beta[step].double(), alpha[step].double(), alpha_bar[step].double()
+            previous = alpha_bar[step - 1].double()
+            x0 = (values - torch.sqrt(1 - cumulative) * epsilon) / torch.sqrt(cumulative)
+            posterior = (
+                b * torch.sqrt(previous) / (1 - cumulative) * x0
+                + (1 - previous) * torch.sqrt(a) / (1 - cumulative) * values
+            )
+            actual = reverse_mean(values, epsilon, step, beta, alpha, alpha_bar)
+            torch.testing.assert_close(actual, posterior, rtol=1e-4, atol=1e-5)
+
+    def test_oracle_sampler_recovers_known_clean_point(self):
+        _, _, alpha_bar, _ = schedule(200, torch.device("cpu"))
+        clean = torch.tensor([0.25, -0.75])
+
+        class Oracle(torch.nn.Module):
+            def __init__(self):
+                super().__init__()
+                self.network = torch.nn.ModuleList([torch.nn.Linear(2, 2)])
+
+            def forward(self, noisy, steps):
+                a = alpha_bar[steps, None]
+                return (noisy - a.sqrt() * clean) / (1 - a).sqrt()
+
+        output = sample_diffusion(Oracle(), 64, SimpleNamespace(timesteps=200), 71, torch.device("cpu"))
+        torch.testing.assert_close(output, clean.expand_as(output), rtol=0, atol=1e-5)
+
+    def test_checkpoints_do_not_change_training(self):
+        points = make_data("two_moons", 16, 51)
+        args = SimpleNamespace(width=8, timesteps=200, batch_size=8, diffusion_steps=3)
+        plain, _, _ = fit_diffusion(points, points, args, 17, torch.device("cpu"))
+        received = []
+
+        def capture(step, model, score):
+            received.append(step)
+            sample_diffusion(model, 4, args, 53, torch.device("cpu"))
+
+        observed, _, _ = fit_diffusion(
+            points, points, args, 17, torch.device("cpu"), checkpoints=[3], on_checkpoint=capture
+        )
+        self.assertEqual(received, [3])
+        for key, value in plain.state_dict().items():
+            torch.testing.assert_close(value, observed.state_dict()[key], rtol=0, atol=0)
+        with self.assertRaises(ValueError):
+            fit_diffusion(points, points, args, 17, torch.device("cpu"), checkpoints=[3])
+
+    def test_geometry_diagnostics(self):
+        angles = np.arange(8) * 2 * np.pi / 8
+        centers = 2 * np.column_stack([np.cos(angles), np.sin(angles)])
+        gaussian_metrics = geometry_metrics("eight_gaussians", centers)
+        self.assertEqual(gaussian_metrics["mean_distance_to_nearest_center"], 0)
+        self.assertEqual(gaussian_metrics["nearest_center_frequencies"], [0.125] * 8)
+        moon_metrics = geometry_metrics("two_moons", np.array([[1, 0], [-1, 0], [0, 0.5], [2, 0.5]]))
+        self.assertAlmostEqual(moon_metrics["mean_distance_to_clean_arcs"], 0)
+
+    def test_spatial_features_preserve_output_shape_and_gradients(self):
+        for dimension in (2, 3):
+            for bands in (0, 4):
+                model = Denoiser(dimension, 16, bands)
+                points = torch.randn(5, dimension, requires_grad=True)
+                predicted = model(points, torch.arange(5))
+                self.assertEqual(predicted.shape, points.shape)
+                predicted.square().sum().backward()
+                self.assertTrue(torch.isfinite(points.grad).all())
+                self.assertGreater(points.grad.abs().sum().item(), 0)
+        with self.assertRaises(ValueError):
+            Denoiser(2, 16, -1)
 
 
 if __name__ == "__main__":

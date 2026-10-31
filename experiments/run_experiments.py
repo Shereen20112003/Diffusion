@@ -122,11 +122,16 @@ class Encoder(nn.Module):
 
 
 class Denoiser(nn.Module):
-    def __init__(self, dimension, width):
+    def __init__(self, dimension, width, spatial_frequencies=0):
         super().__init__()
+        if spatial_frequencies < 0:
+            raise ValueError("Spatial frequency count must be nonnegative.")
+        self.spatial_frequencies = spatial_frequencies
         self.register_buffer("frequencies", torch.exp(-math.log(10000) * torch.arange(8) / 8))
+        if spatial_frequencies:
+            self.register_buffer("spatial_bands", math.pi * 2.0 ** torch.arange(spatial_frequencies))
         self.network = nn.Sequential(
-            nn.Linear(dimension + 16, width),
+            nn.Linear(dimension * (1 + 2 * spatial_frequencies) + 16, width),
             nn.SiLU(),
             nn.Linear(width, width),
             nn.SiLU(),
@@ -136,6 +141,11 @@ class Denoiser(nn.Module):
     def forward(self, coordinates, step):
         phase = step[:, None].float() * self.frequencies[None, :]
         embedding = torch.cat([phase.sin(), phase.cos()], dim=1)
+        if self.spatial_frequencies:
+            spatial = coordinates[:, :, None] * self.spatial_bands
+            coordinates = torch.cat(
+                [coordinates, spatial.sin().flatten(1), spatial.cos().flatten(1)], dim=1
+            )
         return self.network(torch.cat([coordinates, embedding], dim=1))
 
 
@@ -175,9 +185,24 @@ def schedule(timesteps, device):
     return beta, alpha, alpha_bar, posterior_variance
 
 
-def fit_diffusion(train, validation, args, seed, device):
+def forward_noise(clean, noise, steps, alpha_bar):
+    a = alpha_bar[steps, None]
+    return a.sqrt() * clean + (1 - a).sqrt() * noise
+
+
+def reverse_mean(values, predicted_noise, step, beta, alpha, alpha_bar):
+    return (
+        values - beta[step] / (1 - alpha_bar[step]).sqrt() * predicted_noise
+    ) / alpha[step].sqrt()
+
+
+def fit_diffusion(train, validation, args, seed, device, checkpoints=(), on_checkpoint=None):
+    if checkpoints and on_checkpoint is None:
+        raise ValueError("A checkpoint callback is required when checkpoints are requested.")
+    if any(step <= 0 or step > args.diffusion_steps for step in checkpoints):
+        raise ValueError("Checkpoints must fall within the training budget.")
     seed_everything(seed)
-    model = Denoiser(train.shape[1], args.width).to(device)
+    model = Denoiser(train.shape[1], args.width, getattr(args, "spatial_frequencies", 0)).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
     train = torch.tensor(train, device=device)
     validation = torch.tensor(validation, device=device)
@@ -189,11 +214,7 @@ def fit_diffusion(train, validation, args, seed, device):
     validation_noise = torch.randn(
         validation.shape, generator=validation_rng, device=device
     )
-    validation_a = alpha_bar[validation_steps, None]
-    noisy_validation = (
-        validation_a.sqrt() * validation
-        + (1 - validation_a).sqrt() * validation_noise
-    )
+    noisy_validation = forward_noise(validation, validation_noise, validation_steps, alpha_bar)
     history, best, best_state = [], float("inf"), None
     started = time.perf_counter()
     for step in range(1, args.diffusion_steps + 1):
@@ -201,21 +222,24 @@ def fit_diffusion(train, validation, args, seed, device):
         batch = train[indices]
         t = torch.randint(args.timesteps, (len(batch),), device=device)
         noise = torch.randn_like(batch)
-        a = alpha_bar[t, None]
-        noisy = a.sqrt() * batch + (1 - a).sqrt() * noise
+        noisy = forward_noise(batch, noise, t, alpha_bar)
         loss = (model(noisy, t) - noise).square().sum(dim=1).mean()
         if not torch.isfinite(loss):
             raise FloatingPointError("Nonfinite diffusion loss.")
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-        if step == 1 or step % 100 == 0 or step == args.diffusion_steps:
+        if step == 1 or step % 100 == 0 or step == args.diffusion_steps or step in checkpoints:
             with torch.no_grad():
                 score = (model(noisy_validation, validation_steps) - validation_noise)
                 score = score.square().sum(dim=1).mean().item()
             history.append({"step": step, "train": loss.item(), "validation": score})
             if score < best:
                 best, best_state = score, copy.deepcopy(model.state_dict())
+        if step in checkpoints:
+            snapshot = copy.deepcopy(model)
+            snapshot.load_state_dict(best_state)
+            on_checkpoint(step, snapshot.eval(), best)
     model.load_state_dict(best_state)
     return model.eval(), history, time.perf_counter() - started
 
@@ -229,9 +253,7 @@ def sample_diffusion(model, count, args, seed, device):
     for step in range(args.timesteps - 1, -1, -1):
         steps = torch.full((count,), step, device=device, dtype=torch.long)
         prediction = model(values, steps)
-        values = (
-            values - beta[step] / (1 - alpha_bar[step]).sqrt() * prediction
-        ) / alpha[step].sqrt()
+        values = reverse_mean(values, prediction, step, beta, alpha, alpha_bar)
         if step > 0:
             values += variance[step].sqrt() * torch.randn(
                 values.shape, generator=generator, device=device
@@ -531,6 +553,7 @@ def parse_args():
     parser.add_argument("--timesteps", type=int, default=200)
     parser.add_argument("--batch-size", type=int, default=128)
     parser.add_argument("--width", type=int, default=128)
+    parser.add_argument("--spatial-frequencies", type=int, default=0)
     parser.add_argument("--huber-deltas", nargs="+", type=float, default=[0.1, 0.5, 1.0])
     parser.add_argument("--threads", type=int, default=2)
     parser.add_argument("--device", choices=["cpu", "cuda"], default="cpu")
@@ -542,6 +565,8 @@ def parse_args():
             parser.error(f"--{name.replace('_', '-')} must be positive")
     if args.train_size < 4 or args.timesteps < 100:
         parser.error("At least 4 training points and 100 diffusion timesteps are required.")
+    if not 0 <= args.spatial_frequencies <= 8:
+        parser.error("--spatial-frequencies must lie between 0 and 8.")
     if any(seed < 0 or seed > 1_000_000 for seed in args.seeds):
         parser.error("Seeds must lie between 0 and 1000000.")
     if any(not math.isfinite(delta) or delta <= 0 for delta in args.huber_deltas):
