@@ -1,0 +1,96 @@
+{
+  "coordinate": [
+    {
+      "step": 1,
+      "train": 2.7008230686187744,
+      "validation": 2.8181867599487305
+    },
+    {
+      "step": 10,
+      "train": 2.9948511123657227,
+      "validation": 2.736578941345215
+    }
+  ],
+  "decoder_tuning": {
+    "embedded_mse": [
+      {
+        "delta": null,
+        "validation_embedded_mse": 1.8652846813201904,
+        "history": [
+          {
+            "step": 1,
+            "train": 3.0370519161224365,
+            "validation": 2.642063617706299,
+            "validation_embedded_mse": 2.642063617706299
+          },
+          {
+            "step": 10,
+            "train": 1.39579176902771,
+            "validation": 1.8652846813201904,
+            "validation_embedded_mse": 1.8652846813201904
+          }
+        ]
+      }
+    ],
+    "huber": [
+      {
+        "delta": 0.5,
+        "validation_embedded_mse": 1.853744387626648,
+        "history": [
+          {
+            "step": 1,
+            "train": 0.9556887149810791,
+            "validation": 0.8565947413444519,
+            "validation_embedded_mse": 2.6421728134155273
+          },
+          {
+            "step": 10,
+            "train": 0.5532916784286499,
+            "validation": 0.6745731234550476,
+            "validation_embedded_mse": 1.853744387626648
+          }
+        ]
+      }
+    ],
+    "object_mse": [
+      {
+        "delta": null,
+        "validation_embedded_mse": 1.9072476625442505,
+        "history": [
+          {
+            "step": 1,
+            "train": 1.5836259126663208,
+            "validation": 1.3918063640594482,
+            "validation_embedded_mse": 2.6456496715545654
+          },
+          {
+            "step": 10,
+            "train": 0.8362796902656555,
+            "validation": 1.0445356369018555,
+            "validation_embedded_mse": 1.9072476625442505
+          }
+        ]
+      }
+    ],
+    "standardized_mse": [
+      {
+        "delta": null,
+        "validation_embedded_mse": 1.8674025535583496,
+        "history": [
+          {
+            "step": 1,
+            "train": 4.092301368713379,
+            "validation": 3.5316579341888428,
+            "validation_embedded_mse": 2.6420998573303223
+          },
+          {
+            "step": 10,
+            "train": 1.921251654624939,
+            "validation": 2.4944229125976562,
+            "validation_embedded_mse": 1.8674025535583496
+          }
+        ]
+      }
+    ]
+  }
+}

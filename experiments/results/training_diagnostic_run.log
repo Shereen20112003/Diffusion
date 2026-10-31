@@ -1,0 +1,11 @@
+Training two_moons direct to 10000 updates
+two_moons direct 2500 updates: validation W2=0.2656
+two_moons direct 10000 updates: validation W2=0.2669
+Training two_moons coordinate to 10000 updates
+two_moons coordinate 2500 updates: validation W2=0.2626
+two_moons coordinate 10000 updates: validation W2=0.2221
+Training eight_gaussians direct to 10000 updates
+eight_gaussians direct 2500 updates: validation W2=0.5218
+eight_gaussians direct 10000 updates: validation W2=0.3412
+Training eight_gaussians coordinate to 10000 updates
+eight_gaussians coordinate 2500 updates: validation W2=0.4159

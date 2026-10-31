@@ -1,10 +1,28 @@
 # diffusion
 
+## Repository contents
+
+The repository includes the experiment code and all saved local runs: plots,
+metrics, synthetic data, generated samples, model checkpoints, configurations,
+environment records, and logs. The Overleaf source directory and its original
+ZIP, the local Python environment, and Python caches are intentionally excluded.
+
+- [All saved experiment outputs](experiments/results/)
+- [Latest eight-Gaussians plot](experiments/results/spatial_diagnostic/eight_gaussians/comparison_updates_10000.png)
+- [Latest two-moons plot](experiments/results/spatial_diagnostic/two_moons/comparison_updates_10000.png)
+- [Conditional-generation literature review](docs/conditional_generation_literature_review.md)
+
+The saved runs are preserved as produced, including smoke tests and the
+interrupted plain-input diagnostic. Smoke tests are not scientific results;
+the remaining runs are exploratory pilots or development-validation studies,
+not final paper results. Conditional generation has not yet been implemented.
+
 ## Planar experimental pilot
 
 The implementation in `experiments\run_experiments.py` follows the planned
 two-moons and eight-Gaussians experiments in
-`overleaf\experiments\experiment_and_results.tex`.
+the separately maintained Overleaf experimental section
+(`overleaf\experiments\experiment_and_results.tex`, not included here).
 It trains direct Euclidean diffusion and three-coordinate diffusion followed
 by a small 3-to-2 MLP. Decoder comparisons are raw embedded MSE (primary),
 embedded Huber, object-space MSE, and standardized embedded MSE.
@@ -28,7 +46,7 @@ needed. The script uses two CPU threads by default.
 ### Run
 
 ```powershell
-& .\.venv\Scripts\python.exe .\experiments\run_experiments.py --output .\experiments\results\pilot
+& .\.venv\Scripts\python.exe .\experiments\run_experiments.py
 ```
 
 The output directory must not already exist, to prevent overwriting a run.
@@ -81,7 +99,8 @@ One seed is a **pilot**, not evidence of superiority or equivalence.
 Across-seed standard deviation is left empty rather than reported as zero
 when only one seed is run. A later run can use `--seeds 0 1 2 3 4`.
 Use `--datasets two_moons`, `--landmarks manual`, or `--losses embedded_mse`
-for a smaller run. Results are ignored by Git but remain on disk.
+for a smaller run. Saved results are tracked in Git. Use a fresh output
+directory when rerunning rather than overwriting the archived runs.
 Training does not modify the manuscript or automatically insert pilot plots
 into the paper.
 
@@ -114,7 +133,7 @@ training duration while keeping architecture, optimizer, noise schedule,
 training stream, and sampling seed fixed:
 
 ```powershell
-& .\.venv\Scripts\python.exe .\experiments\diagnose_training.py --output .\experiments\results\training_diagnostic
+& .\.venv\Scripts\python.exe .\experiments\diagnose_training.py --output ".\experiments\results\training_diagnostic_$(Get-Date -Format yyyyMMdd_HHmmss)"
 ```
 
 It compares checkpoints selected by validation noise error after 2,500 and
@@ -156,7 +175,7 @@ plain-input architecture. Defaults remain unchanged and no prior run is
 overwritten.
 
 ```powershell
-& .\.venv\Scripts\python.exe .\experiments\diagnose_training.py --spatial-frequencies 4 --output .\experiments\results\spatial_diagnostic
+& .\.venv\Scripts\python.exe .\experiments\diagnose_training.py --spatial-frequencies 4 --output ".\experiments\results\spatial_diagnostic_$(Get-Date -Format yyyyMMdd_HHmmss)"
 ```
 
 For an interrupted diagnostic that saved all checkpoint samples and noise

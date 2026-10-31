@@ -1,0 +1,11 @@
+{
+  "w2": 0.10921247447961092,
+  "validation_geometry": {
+    "mean_distance_to_clean_arcs": 0.039002979231435676,
+    "fraction_farther_than_0.15_from_arcs": 0.005859375
+  },
+  "independent_real_geometry": {
+    "mean_distance_to_clean_arcs": 0.039090692790608436,
+    "fraction_farther_than_0.15_from_arcs": 0.00390625
+  }
+}

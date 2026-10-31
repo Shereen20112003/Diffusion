@@ -1,0 +1,7 @@
+dataset,landmarks,method,runs,w2_mean,w2_sample_sd
+two_moons,manual,embedded_mse,1,13.213108144494212,
+two_moons,manual,huber,1,13.568486151532678,
+two_moons,manual,object_mse,1,12.779206086717334,
+two_moons,manual,standardized_mse,1,13.257481786586977,
+two_moons,not_applicable,direct_ddpm,1,83.48336887107284,
+two_moons,not_applicable,real_real,1,0.55106122548085,

@@ -1,0 +1,13 @@
+Training two_moons direct to 10000 updates
+two_moons direct 2500 updates: validation W2=0.2426
+two_moons direct 10000 updates: validation W2=0.2608
+Training two_moons coordinate to 10000 updates
+two_moons coordinate 2500 updates: validation W2=0.1879
+two_moons coordinate 10000 updates: validation W2=0.1711
+Training eight_gaussians direct to 10000 updates
+eight_gaussians direct 2500 updates: validation W2=0.5142
+eight_gaussians direct 10000 updates: validation W2=0.2988
+Training eight_gaussians coordinate to 10000 updates
+eight_gaussians coordinate 2500 updates: validation W2=0.3288
+eight_gaussians coordinate 10000 updates: validation W2=0.3665
+Development results: C:\Users\t-sheanand\OneDrive - Microsoft\Desktop\Diffusion\experiments\results\spatial_diagnostic

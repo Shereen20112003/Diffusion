@@ -1,0 +1,42 @@
+{
+  "direct": {
+    "history": [
+      {
+        "step": 1,
+        "train": 1.705765962600708,
+        "validation": 1.8864637613296509
+      },
+      {
+        "step": 2,
+        "train": 1.8449760675430298,
+        "validation": 1.836965799331665
+      },
+      {
+        "step": 3,
+        "train": 1.853503704071045,
+        "validation": 1.788825273513794
+      }
+    ],
+    "seconds_including_diagnostics": 4.369287300040014
+  },
+  "coordinate": {
+    "history": [
+      {
+        "step": 1,
+        "train": 3.106600522994995,
+        "validation": 2.894252300262451
+      },
+      {
+        "step": 2,
+        "train": 3.0340638160705566,
+        "validation": 2.8289666175842285
+      },
+      {
+        "step": 3,
+        "train": 2.7737770080566406,
+        "validation": 2.764333724975586
+      }
+    ],
+    "seconds_including_diagnostics": 1.0959982000058517
+  }
+}

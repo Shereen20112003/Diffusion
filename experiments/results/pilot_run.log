@@ -1,0 +1,35 @@
+two_moons, seed 0: training direct DDPM
+  direct W2=0.2201; real-real W2=0.1372
+  manual: training coordinate DDPM
+    embedded_mse: W2=0.2460, reconstruction MSE=0.000002
+    huber: W2=0.2467, reconstruction MSE=0.000000
+    object_mse: W2=0.2470, reconstruction MSE=0.000001
+    standardized_mse: W2=0.2463, reconstruction MSE=0.000001
+  random: training coordinate DDPM
+    embedded_mse: W2=0.2387, reconstruction MSE=0.000001
+    huber: W2=0.2389, reconstruction MSE=0.000001
+    object_mse: W2=0.2389, reconstruction MSE=0.000001
+    standardized_mse: W2=0.2391, reconstruction MSE=0.000001
+  fps: training coordinate DDPM
+    embedded_mse: W2=0.2298, reconstruction MSE=0.000001
+    huber: W2=0.2300, reconstruction MSE=0.000001
+    object_mse: W2=0.2300, reconstruction MSE=0.000001
+    standardized_mse: W2=0.2299, reconstruction MSE=0.000001
+eight_gaussians, seed 0: training direct DDPM
+  direct W2=0.5646; real-real W2=0.4416
+  manual: training coordinate DDPM
+    embedded_mse: W2=0.4486, reconstruction MSE=0.000011
+    huber: W2=0.4497, reconstruction MSE=0.000002
+    object_mse: W2=0.4486, reconstruction MSE=0.000010
+    standardized_mse: W2=0.4486, reconstruction MSE=0.000011
+  random: training coordinate DDPM
+    embedded_mse: W2=0.4950, reconstruction MSE=0.000008
+    huber: W2=0.4967, reconstruction MSE=0.000002
+    object_mse: W2=0.4953, reconstruction MSE=0.000007
+    standardized_mse: W2=0.4950, reconstruction MSE=0.000008
+  fps: training coordinate DDPM
+    embedded_mse: W2=0.4281, reconstruction MSE=0.000006
+    huber: W2=0.4294, reconstruction MSE=0.000000
+    object_mse: W2=0.4281, reconstruction MSE=0.000006
+    standardized_mse: W2=0.4281, reconstruction MSE=0.000006
+Completed. Results: C:\Users\t-sheanand\OneDrive - Microsoft\Desktop\Diffusion\experiments\results\pilot

@@ -1,0 +1,42 @@
+{
+  "stage": "validation_only_development_not_final_evaluation",
+  "created_utc": "2026-10-31T17:25:02.223068+00:00",
+  "datasets": [
+    "two_moons",
+    "eight_gaussians"
+  ],
+  "seed": 0,
+  "checkpoints": [
+    2500,
+    10000
+  ],
+  "model_settings": {
+    "width": 128,
+    "diffusion_steps": 10000,
+    "decoder_steps": 1000,
+    "timesteps": 200,
+    "batch_size": 128,
+    "spatial_frequencies": 4
+  },
+  "threads": 2,
+  "train_size": 4096,
+  "decoder_validation_size": 1024,
+  "distribution_validation_size": 512,
+  "training_seed_rule": "seed*100+1; same training observations as pilot",
+  "fit_validation_seed_rule": "seed*100+2; same fitting-validation observations as pilot",
+  "distribution_validation_seeds": [
+    90000,
+    91000
+  ],
+  "landmarks": "manual peripheral directions",
+  "loss": "embedded_mse",
+  "selection": "best noise-validation checkpoint up to each stated update budget",
+  "controlled_factors": "architecture, schedule, initial weights, training stream, sampling seed",
+  "source_sha256": {
+    "diagnose_training.py": "4b1624ac6f8e0aa71c455adb2da61ccac996a2583f40f82c807da3a327a887c0",
+    "run_experiments.py": "7eda81ff52ad02445667722ea97aad1208700a190ec9637498819729c05d3684"
+  },
+  "torch": "2.14.1+cpu",
+  "numpy": "2.5.4",
+  "reference": "https://github.com/hojonathanho/diffusion/blob/master/diffusion_tf/diffusion_utils.py"
+}
