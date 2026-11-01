@@ -1,0 +1,10 @@
+{
+  "mean_distance_to_clean_arcs": 0.05514066921454829,
+  "fraction_farther_than_0.15_from_arcs": 0.04296875,
+  "generated_localization_mean": 0.029225463047623634,
+  "generated_nearest_reference_mean": 0.09717559814453125,
+  "kernel_localization_bound": 0.2884053773201766,
+  "weight_sum_max_error": 2.384185791015625e-07,
+  "global_objective_gap": 0.0,
+  "empirical_encoded_reference_cover_radius": 0.23604384064674377
+}

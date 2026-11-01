@@ -1,0 +1,44 @@
+{
+  "direct": {
+    "mean_distance_to_nearest_center": 0.2214728265087685,
+    "fraction_farther_than_0.45_from_centers": 0.091796875,
+    "nearest_center_frequencies": [
+      0.111328125,
+      0.1484375,
+      0.125,
+      0.115234375,
+      0.1328125,
+      0.119140625,
+      0.107421875,
+      0.140625
+    ]
+  },
+  "real_reference": {
+    "mean_distance_to_nearest_center": 0.18429829603243836,
+    "fraction_farther_than_0.45_from_centers": 0.009765625,
+    "nearest_center_frequencies": [
+      0.111328125,
+      0.134765625,
+      0.115234375,
+      0.126953125,
+      0.091796875,
+      0.140625,
+      0.138671875,
+      0.140625
+    ]
+  },
+  "test": {
+    "mean_distance_to_nearest_center": 0.19045431214133138,
+    "fraction_farther_than_0.45_from_centers": 0.021484375,
+    "nearest_center_frequencies": [
+      0.142578125,
+      0.115234375,
+      0.123046875,
+      0.119140625,
+      0.12890625,
+      0.107421875,
+      0.125,
+      0.138671875
+    ]
+  }
+}

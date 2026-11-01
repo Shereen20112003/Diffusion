@@ -1,0 +1,95 @@
+{
+  "kernel_frechet": {
+    "selected_bandwidth": 0.3,
+    "selection_score": 0.0034136322792619467,
+    "training_seconds_including_tuning": 0.008756799972616136,
+    "candidate_count": 3,
+    "candidates": [
+      {
+        "bandwidth": 0.1,
+        "selection_score": 0.016971051692962646,
+        "training_seconds": 0.00307709991466254,
+        "history": []
+      },
+      {
+        "bandwidth": 0.3,
+        "selection_score": 0.0034136322792619467,
+        "training_seconds": 0.003717700019478798,
+        "history": []
+      },
+      {
+        "bandwidth": 1.0,
+        "selection_score": 0.015060991048812866,
+        "training_seconds": 0.001962000038474798,
+        "history": []
+      }
+    ],
+    "parameters": 0
+  },
+  "learned_frechet": {
+    "selected_bandwidth": 0.3,
+    "selection_score": 0.003371461993083358,
+    "training_seconds_including_tuning": 0.049139499897137284,
+    "candidate_count": 3,
+    "candidates": [
+      {
+        "bandwidth": 0.1,
+        "selection_score": 0.01696803979575634,
+        "training_seconds": 0.020259200013242662,
+        "history": [
+          {
+            "step": 1,
+            "train": 0.014742463827133179,
+            "validation": 0.01696939207613468,
+            "validation_embedded_mse": 0.01696939207613468
+          },
+          {
+            "step": 3,
+            "train": 0.015899064019322395,
+            "validation": 0.01696803979575634,
+            "validation_embedded_mse": 0.01696803979575634
+          }
+        ]
+      },
+      {
+        "bandwidth": 0.3,
+        "selection_score": 0.003371461993083358,
+        "training_seconds": 0.014410599949769676,
+        "history": [
+          {
+            "step": 1,
+            "train": 0.0049771699123084545,
+            "validation": 0.0033970812801271677,
+            "validation_embedded_mse": 0.0033970812801271677
+          },
+          {
+            "step": 3,
+            "train": 0.005141182336956263,
+            "validation": 0.003371461993083358,
+            "validation_embedded_mse": 0.003371461993083358
+          }
+        ]
+      },
+      {
+        "bandwidth": 1.0,
+        "selection_score": 0.01424501184374094,
+        "training_seconds": 0.014469699934124947,
+        "history": [
+          {
+            "step": 1,
+            "train": 0.017079666256904602,
+            "validation": 0.014789290726184845,
+            "validation_embedded_mse": 0.014789290726184845
+          },
+          {
+            "step": 3,
+            "train": 0.014167038723826408,
+            "validation": 0.01424501184374094,
+            "validation_embedded_mse": 0.01424501184374094
+          }
+        ]
+      }
+    ],
+    "parameters": 572
+  }
+}

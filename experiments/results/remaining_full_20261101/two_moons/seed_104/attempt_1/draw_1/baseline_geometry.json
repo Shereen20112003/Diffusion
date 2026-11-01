@@ -1,0 +1,14 @@
+{
+  "direct": {
+    "mean_distance_to_clean_arcs": 0.05124152934631932,
+    "fraction_farther_than_0.15_from_arcs": 0.04296875
+  },
+  "real_reference": {
+    "mean_distance_to_clean_arcs": 0.04229051901065468,
+    "fraction_farther_than_0.15_from_arcs": 0.0
+  },
+  "test": {
+    "mean_distance_to_clean_arcs": 0.0395105683147296,
+    "fraction_farther_than_0.15_from_arcs": 0.0
+  }
+}

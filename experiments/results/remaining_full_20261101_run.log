@@ -1,0 +1,84 @@
+two_moons, seed 100: training direct baseline
+two_moons, seed 100: training manual coordinate DDPM
+two_moons, seed 100: fitting manual reconstruction comparisons
+two_moons, seed 100: training random coordinate DDPM
+two_moons, seed 100: fitting random reconstruction comparisons
+two_moons, seed 100: training fps coordinate DDPM
+two_moons, seed 100: fitting fps reconstruction comparisons
+two_moons, seed 100: evaluating frozen models on fresh independent draws
+two_moons, seed 101: training direct baseline
+two_moons, seed 101: training manual coordinate DDPM
+two_moons, seed 101: fitting manual reconstruction comparisons
+two_moons, seed 101: training random coordinate DDPM
+two_moons, seed 101: fitting random reconstruction comparisons
+two_moons, seed 101: training fps coordinate DDPM
+two_moons, seed 101: fitting fps reconstruction comparisons
+two_moons, seed 101: evaluating frozen models on fresh independent draws
+two_moons, seed 102: training direct baseline
+two_moons, seed 102: training manual coordinate DDPM
+two_moons, seed 102: fitting manual reconstruction comparisons
+two_moons, seed 102: training random coordinate DDPM
+two_moons, seed 102: fitting random reconstruction comparisons
+two_moons, seed 102: training fps coordinate DDPM
+two_moons, seed 102: fitting fps reconstruction comparisons
+two_moons, seed 102: evaluating frozen models on fresh independent draws
+two_moons, seed 103: training direct baseline
+two_moons, seed 103: training manual coordinate DDPM
+two_moons, seed 103: fitting manual reconstruction comparisons
+two_moons, seed 103: training random coordinate DDPM
+two_moons, seed 103: fitting random reconstruction comparisons
+two_moons, seed 103: training fps coordinate DDPM
+two_moons, seed 103: fitting fps reconstruction comparisons
+two_moons, seed 103: evaluating frozen models on fresh independent draws
+two_moons, seed 104: training direct baseline
+two_moons, seed 104: training manual coordinate DDPM
+two_moons, seed 104: fitting manual reconstruction comparisons
+two_moons, seed 104: training random coordinate DDPM
+two_moons, seed 104: fitting random reconstruction comparisons
+two_moons, seed 104: training fps coordinate DDPM
+two_moons, seed 104: fitting fps reconstruction comparisons
+two_moons, seed 104: evaluating frozen models on fresh independent draws
+eight_gaussians, seed 100: training direct baseline
+eight_gaussians, seed 100: training manual coordinate DDPM
+eight_gaussians, seed 100: fitting manual reconstruction comparisons
+eight_gaussians, seed 100: training random coordinate DDPM
+eight_gaussians, seed 100: fitting random reconstruction comparisons
+eight_gaussians, seed 100: training fps coordinate DDPM
+eight_gaussians, seed 100: fitting fps reconstruction comparisons
+eight_gaussians, seed 100: evaluating frozen models on fresh independent draws
+eight_gaussians, seed 101: training direct baseline
+eight_gaussians, seed 101: training manual coordinate DDPM
+eight_gaussians, seed 101: fitting manual reconstruction comparisons
+eight_gaussians, seed 101: training random coordinate DDPM
+eight_gaussians, seed 101: fitting random reconstruction comparisons
+eight_gaussians, seed 101: training fps coordinate DDPM
+eight_gaussians, seed 101: fitting fps reconstruction comparisons
+eight_gaussians, seed 101: evaluating frozen models on fresh independent draws
+eight_gaussians, seed 102: training direct baseline
+eight_gaussians, seed 102: training manual coordinate DDPM
+eight_gaussians, seed 102: fitting manual reconstruction comparisons
+eight_gaussians, seed 102: training random coordinate DDPM
+eight_gaussians, seed 102: fitting random reconstruction comparisons
+eight_gaussians, seed 102: training fps coordinate DDPM
+eight_gaussians, seed 102: fitting fps reconstruction comparisons
+eight_gaussians, seed 102: evaluating frozen models on fresh independent draws
+eight_gaussians, seed 103: training direct baseline
+eight_gaussians, seed 103: training manual coordinate DDPM
+eight_gaussians, seed 103: fitting manual reconstruction comparisons
+eight_gaussians, seed 103: training random coordinate DDPM
+eight_gaussians, seed 103: fitting random reconstruction comparisons
+eight_gaussians, seed 103: training fps coordinate DDPM
+eight_gaussians, seed 103: fitting fps reconstruction comparisons
+eight_gaussians, seed 103: evaluating frozen models on fresh independent draws
+eight_gaussians, seed 104: training direct baseline
+eight_gaussians, seed 104: training manual coordinate DDPM
+eight_gaussians, seed 104: fitting manual reconstruction comparisons
+eight_gaussians, seed 104: training random coordinate DDPM
+eight_gaussians, seed 104: fitting random reconstruction comparisons
+eight_gaussians, seed 104: training fps coordinate DDPM
+eight_gaussians, seed 104: fitting fps reconstruction comparisons
+eight_gaussians, seed 104: evaluating frozen models on fresh independent draws
+sphere, seed 100: training direct baseline
+sphere, seed 100: training fps coordinate DDPM
+sphere, seed 100: fitting fps reconstruction comparisons
+sphere, seed 100: evaluating frozen models on fresh independent draws

@@ -1,0 +1,17 @@
+{
+  "direct": {
+    "object_mean_average": -4.992176532745361,
+    "object_std_average": 68.2472152709961,
+    "minimum_quantile_increment": 0.015634536743164062
+  },
+  "real_reference": {
+    "object_mean_average": 0.3707384169101715,
+    "object_std_average": 0.4325990378856659,
+    "minimum_quantile_increment": 0.01703786849975586
+  },
+  "test": {
+    "object_mean_average": -0.08689983934164047,
+    "object_std_average": 0.37326622009277344,
+    "minimum_quantile_increment": 0.0167769193649292
+  }
+}

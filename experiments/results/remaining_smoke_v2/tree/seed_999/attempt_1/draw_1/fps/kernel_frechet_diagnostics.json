@@ -1,0 +1,13 @@
+{
+  "vertex_mass": 0.0,
+  "branch_0_mass": 0.20833333333333334,
+  "branch_1_mass": 0.375,
+  "branch_2_mass": 0.4166666666666667,
+  "branch_vertex_total_variation": 0.1,
+  "generated_localization_mean": 0.0,
+  "generated_nearest_reference_mean": 190.7873992919922,
+  "kernel_localization_bound": 0.6687923421824146,
+  "weight_sum_max_error": 0.0,
+  "global_objective_gap": 0.0,
+  "empirical_encoded_reference_cover_radius": 0.5526054501533508
+}

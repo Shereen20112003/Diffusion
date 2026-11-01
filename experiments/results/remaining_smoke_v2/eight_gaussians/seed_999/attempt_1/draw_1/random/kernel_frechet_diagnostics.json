@@ -1,0 +1,20 @@
+{
+  "mean_distance_to_nearest_center": 0.2172567667213896,
+  "fraction_farther_than_0.45_from_centers": 0.041666666666666664,
+  "nearest_center_frequencies": [
+    0.041666666666666664,
+    0.16666666666666666,
+    0.125,
+    0.125,
+    0.16666666666666666,
+    0.125,
+    0.20833333333333334,
+    0.041666666666666664
+  ],
+  "generated_localization_mean": 0.0,
+  "generated_nearest_reference_mean": 141.3133087158203,
+  "kernel_localization_bound": 0.6687923421824146,
+  "weight_sum_max_error": 0.0,
+  "global_objective_gap": 0.0,
+  "empirical_encoded_reference_cover_radius": 0.5100662112236023
+}

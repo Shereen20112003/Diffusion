@@ -1,0 +1,38 @@
+{
+  "base_and_encoding_indices": [
+    15,
+    62,
+    47,
+    60
+  ],
+  "reconstruction_indices": [
+    0,
+    12,
+    6,
+    4,
+    30,
+    47,
+    62,
+    40,
+    14,
+    46,
+    20,
+    42
+  ],
+  "coordinate_mean": [
+    0.8246309757232666,
+    0.6594266295433044,
+    1.0393550395965576
+  ],
+  "coordinate_scale": [
+    1.3984838724136353,
+    1.4460431337356567,
+    1.4078079462051392
+  ],
+  "encoding_landmark_count": 3,
+  "reconstruction_object_count": 12,
+  "base_rule": "training object nearest coordinate-wise median",
+  "rank": 2,
+  "condition_number_raw": 1.3142393827438354,
+  "condition_number_standardized": 1.2902827262878418
+}

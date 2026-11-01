@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "units": 5,
+  "metric_rows": 57,
+  "wall_seconds_this_invocation": 74.92958370002452,
+  "independent_training_seeds": 1,
+  "evaluation_draws_per_seed": 1,
+  "interpretation": "computation complete; inspect effect sizes, geometry diagnostics and solver caveats"
+}

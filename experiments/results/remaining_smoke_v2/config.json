@@ -1,0 +1,115 @@
+{
+  "arguments": {
+    "datasets": [
+      "two_moons",
+      "eight_gaussians",
+      "sphere",
+      "tree",
+      "distributions"
+    ],
+    "seeds": [
+      999
+    ],
+    "landmarks": [
+      "manual",
+      "random",
+      "fps"
+    ],
+    "losses": [
+      "embedded_mse",
+      "huber",
+      "object_mse",
+      "standardized_mse"
+    ],
+    "train_size": 64,
+    "validation_size": 24,
+    "eval_size": 24,
+    "eval_draws": 2,
+    "diffusion_steps": 3,
+    "decoder_steps": 3,
+    "timesteps": 200,
+    "batch_size": 16,
+    "width": 16,
+    "spatial_frequencies": 4,
+    "huber_deltas": [
+      0.1,
+      0.5,
+      1.0
+    ],
+    "bandwidths": [
+      0.1,
+      0.3,
+      1.0
+    ],
+    "reconstruction_count": 12,
+    "metric_landmarks": 5,
+    "quantiles": 32,
+    "sphere_iterations": 24,
+    "threads": 2
+  },
+  "study": "original_protocol_repeated_seed_study_no_conditional_generation",
+  "source_sha256": {
+    "run_remaining_experiments.py": "22f2ff517b67b453298e4005a5318a392fe217895be744dd0acfc9cbbf277319",
+    "metric_spaces.py": "f8de385598ab4d677ef3311302bfe6b70fa52e48bb09a814860a0a97f5fe2067",
+    "run_experiments.py": "fd77fc9f72ba44578c734a681926d122671a2c86b92c25ff4348d944aec27fd1",
+    "diagnose_training.py": "4b1624ac6f8e0aa71c455adb2da61ccac996a2583f40f82c807da3a327a887c0"
+  },
+  "spaces": {
+    "two_moons": {
+      "metric": "Euclidean",
+      "data": "unchanged original planar generator",
+      "support_caveat": "unbounded noise; does not satisfy compact-support theorem",
+      "decoder": "MLP comparison and exact weighted Euclidean Frechet means",
+      "baseline": "direct Euclidean DDPM, no projection"
+    },
+    "eight_gaussians": {
+      "metric": "Euclidean",
+      "data": "unchanged original planar generator",
+      "support_caveat": "unbounded noise; does not satisfy compact-support theorem",
+      "decoder": "MLP comparison and exact weighted Euclidean Frechet means",
+      "baseline": "direct Euclidean DDPM, no projection"
+    },
+    "sphere": {
+      "metric": "unit-sphere geodesic angle (radians)",
+      "data": "three tangent-disk components at radius .45, disk radius .08; north exponential map",
+      "mixture_weights": [
+        0.2,
+        0.3,
+        0.5
+      ],
+      "support": "north-pole geodesic cap of radius <= .53 < pi/4",
+      "decoder": "unrolled Karcher iteration from normalized weighted Euclidean mean",
+      "solver_caveat": "gradient residual reported; not a certified global objective-gap estimate",
+      "baseline": "ambient 3D DDPM with radial normalization"
+    },
+    "tree": {
+      "metric": "shortest path on fixed compact three-edge unit metric star",
+      "data": "branch masses .2/.3/.4 and vertex atom .1; radius .2+.8*Beta(2,2)",
+      "decoder": "exact weighted Frechet mean using positive folded branch moment",
+      "baseline": "ambient one-hot/radius DDPM with nearest Euclidean star projection"
+    },
+    "distributions": {
+      "metric": "exact 1D W2 between equally weighted sorted-atom measures",
+      "data": "bounded location/scale/skew family of normal/exponential quantile mixtures",
+      "objects": "32 equal-mass atoms per distribution, not exact continuous laws",
+      "decoder": "exact Frechet barycenter: weighted average of sorted atoms",
+      "baseline": "ambient quantile DDPM with increasing rearrangement"
+    }
+  },
+  "seed_scheme": "SeedSequence([20261101, training_seed, dataset_index, role, draw]); 31-bit state",
+  "selection": "fit-validation only; common raw embedded MSE for decoder checkpoints/candidates",
+  "evaluation": "three independent roles: training, fit-validation, fresh evaluation; equal-count exact assignment",
+  "uncertainty": "average evaluation draws within training seed; SD and t interval across seed means",
+  "learned_weights": "softmax(-coordinate_distance_squared/(2*h*h) + 2*tanh(MLP)); residual range <= 4",
+  "scope": "four MLP losses and three landmark rules on planar data; primary-loss Frechet decoders with FPS on extensions",
+  "baseline_caveat": "ambient repaired DDPM is not an official intrinsic-manifold baseline reproduction",
+  "reference_coverage_caveat": "reported maxima on evaluation objects are empirical probes, not certified support suprema",
+  "status_caveat": "completed computation does not imply a favorable outcome or paper readiness",
+  "environment": {
+    "python": "3.12.10",
+    "torch": "2.14.1+cpu",
+    "numpy": "2.5.4",
+    "device": "cpu",
+    "threads": 2
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "unit_norm_max_error": 5.960464477539063e-08,
+  "fraction_outside_data_cap": 0.0,
+  "generated_localization_mean": 0.03516567498445511,
+  "generated_nearest_reference_mean": 0.1308630257844925,
+  "kernel_localization_bound": 0.40395254878165265,
+  "weight_sum_max_error": 2.384185791015625e-07,
+  "sphere_mean_log_residual_max": 3.1680303891334916e-07,
+  "sphere_mean_log_residual_mean": 7.603237861530943e-08,
+  "empirical_encoded_reference_cover_radius": 0.17450164258480072
+}

@@ -1,0 +1,5 @@
+{
+  "timestamp_utc": "2026-11-01T03:45:29.745576+00:00",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\t-sheanand\\OneDrive - Microsoft\\Desktop\\Diffusion\\experiments\\run_remaining_experiments.py\", line 515, in run\n    unit_rows = run_unit(args, dataset, seed, folder)\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\t-sheanand\\OneDrive - Microsoft\\Desktop\\Diffusion\\experiments\\run_remaining_experiments.py\", line 237, in run_unit\n    progress(args.output, dataset, seed, \"training direct baseline\")\n  File \"C:\\Users\\t-sheanand\\OneDrive - Microsoft\\Desktop\\Diffusion\\experiments\\run_remaining_experiments.py\", line 38, in progress\n    print(f\"{dataset}, seed {seed}: {phase}\", flush=True)\nOSError: [Errno 22] Invalid argument\n",
+  "recovery": "explicit --resume preserves completed units and old partial attempts"
+}

@@ -263,9 +263,10 @@ def sample_diffusion(model, count, args, seed, device):
     return values
 
 
-def fit_decoder(train, validation, encoder, kind, delta, args, seed, device):
+def fit_decoder(train, validation, encoder, kind, delta, args, seed, device,
+                *, model_factory=None, loss_function=reconstruction_loss):
     seed_everything(seed)
-    model = make_decoder(args.width).to(device)
+    model = (make_decoder(args.width) if model_factory is None else model_factory()).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
     train, validation = torch.tensor(train, device=device), torch.tensor(validation, device=device)
     with torch.no_grad():
@@ -275,7 +276,7 @@ def fit_decoder(train, validation, encoder, kind, delta, args, seed, device):
     for step in range(1, args.decoder_steps + 1):
         indices = torch.randint(len(train), (args.batch_size,), device=device)
         prediction = model(train_z[indices])
-        loss = reconstruction_loss(prediction, train[indices], encoder, kind, delta)
+        loss = loss_function(prediction, train[indices], encoder, kind, delta)
         if not torch.isfinite(loss):
             raise FloatingPointError("Nonfinite reconstruction loss.")
         optimizer.zero_grad()
@@ -284,9 +285,9 @@ def fit_decoder(train, validation, encoder, kind, delta, args, seed, device):
         if step == 1 or step % 100 == 0 or step == args.decoder_steps:
             with torch.no_grad():
                 predicted = model(validation_z)
-                own_loss = reconstruction_loss(predicted, validation, encoder, kind, delta).item()
+                own_loss = loss_function(predicted, validation, encoder, kind, delta).item()
                 # Common validation criterion makes checkpoint selection comparable.
-                score = reconstruction_loss(
+                score = loss_function(
                     predicted, validation, encoder, "embedded_mse"
                 ).item()
             history.append({

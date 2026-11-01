@@ -1,0 +1,5 @@
+{
+  "timestamp_utc": "2026-10-31T20:56:03.512864+00:00",
+  "selection": "all checkpoints, Huber thresholds and bandwidths fixed using fit validation",
+  "evaluation_draws": 2
+}

@@ -1,0 +1,14 @@
+{
+  "mean_distance_to_nearest_center": 0.2128000364027383,
+  "fraction_farther_than_0.45_from_centers": 0.078125,
+  "nearest_center_frequencies": [
+    0.1484375,
+    0.10546875,
+    0.125,
+    0.111328125,
+    0.083984375,
+    0.150390625,
+    0.134765625,
+    0.140625
+  ]
+}
