@@ -1,4 +1,10 @@
-# diffusion
+# Generative Distribution Learning in Metric Spaces
+
+Reference implementation and saved experimental records for a distance-coordinate diffusion study on metric-valued data. The repository accompanies an unpublished manuscript. It is not a claim that the method is novel, and conditional generation has not been implemented.
+
+## Status
+
+The completed scientific records are the five-seed unconditional studies of two moons and eight Gaussians. One sphere seed is complete. The fixed-star and distribution-valued studies were stopped before completion. The conditional-generation documents are a literature assessment and an experimental protocol, not experimental results.
 
 ## Repository contents
 
