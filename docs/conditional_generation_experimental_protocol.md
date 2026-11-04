@@ -2,6 +2,13 @@
 
 Prepared: 2026-11-01.
 
+**2026-11-03 update:** This earlier multi-geometry proposal is retained as a
+historical design document. The separately approved next step is the
+[conditional metric-star pilot](conditional_metric_star_pilot.md), implemented
+with a bounded single-seed smoke run. That later protocol supersedes the
+execution order and star design below for the current task; it does not
+authorize the other datasets, a full study, or external baseline installation.
+
 **Status: proposed design only. No implementation, training, baseline
 installation, or resumption of stopped experiments is authorized.**
 Dataset choices and budgets below are recommendations for approval before

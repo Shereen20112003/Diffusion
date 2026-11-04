@@ -1,0 +1,5 @@
+{
+  "experiments\\results\\conditional_star_smoke_20261103\\S0_no_atom\\seed_100\\independent_data.npz": "25afba18bca53bc887fae3a7d76c364955afb9e39d05864e49b8b0abd7f96277",
+  "experiments\\results\\conditional_star_smoke_20261103\\S1_varying_atom\\seed_100\\independent_data.npz": "0973fc22207e407301ec0e32e9fcc544875d1f21db958ec2904fc2926ee085ce",
+  "experiments\\results\\conditional_star_smoke_20261103\\S2_near_vertex_no_atom\\seed_100\\independent_data.npz": "68e00e58608bafdbb77c7240a7e051f0f2154f7c855f4c281cfbd3583c1c0da4"
+}

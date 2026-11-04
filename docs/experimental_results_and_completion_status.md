@@ -2,6 +2,11 @@
 
 Assessment date: 2026-11-01.
 
+**2026-11-03 update:** The original-run assessment below is unchanged in scope.
+A separate conditional metric-star implementation and smoke validation are
+documented in the [conditional pilot status](conditional_metric_star_pilot_results.md).
+Those smoke outputs do not complete the interrupted unconditional star study.
+
 This is a read-only assessment of `experiments/results/remaining_full_20261101`,
 not a claim that the full study completed. No training was restarted.
 The source artifacts and generated samples were left unchanged.

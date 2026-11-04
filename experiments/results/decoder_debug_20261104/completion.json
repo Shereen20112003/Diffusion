@@ -1,0 +1,10 @@
+{
+  "experiment": "conditional_tripod_decoder_only_debug",
+  "complete": true,
+  "ddpm_runs": 0,
+  "seconds": 9.566647100029513,
+  "metric_rows": 864,
+  "center_invariant_audits_passed": 48,
+  "new_true_observations": 18432,
+  "scientific_claim": "decoder diagnosis only; no superiority or conditional-generation claim"
+}

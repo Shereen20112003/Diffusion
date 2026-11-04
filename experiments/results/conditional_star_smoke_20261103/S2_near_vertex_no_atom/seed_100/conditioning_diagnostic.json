@@ -1,0 +1,7 @@
+{
+  "scenario": "S2_near_vertex_no_atom",
+  "descriptive_primary_beats_x_ignored_on_both_metrics": true,
+  "conditioning_established": false,
+  "criterion": "descriptive only: raw primary integrated W2 and TV both below X-ignored control",
+  "caveat": "A smoke test is not evidence of conditioning; a false flag requires investigation, not a superiority claim."
+}

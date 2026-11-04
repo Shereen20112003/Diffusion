@@ -1,0 +1,30 @@
+{
+  "verified": true,
+  "metric_rows": 864,
+  "center_invariant_audits": 48,
+  "old_S1_h01_confusion": {
+    "TP": 0,
+    "FN": 13,
+    "FP": 2,
+    "TN": 33
+  },
+  "source_hashes_match": true,
+  "analytic_inverse_check": [
+    {
+      "scenario": "S0_no_atom",
+      "controlled_analytic_inverse_max_coordinate_error": 3.3306690738754696e-16,
+      "center_labels_exact": true
+    },
+    {
+      "scenario": "S1_varying_atom",
+      "controlled_analytic_inverse_max_coordinate_error": 3.3306690738754696e-16,
+      "center_labels_exact": true
+    },
+    {
+      "scenario": "S2_near_vertex_no_atom",
+      "controlled_analytic_inverse_max_coordinate_error": 3.3306690738754696e-16,
+      "center_labels_exact": true
+    }
+  ],
+  "no_ddpm_run": true
+}

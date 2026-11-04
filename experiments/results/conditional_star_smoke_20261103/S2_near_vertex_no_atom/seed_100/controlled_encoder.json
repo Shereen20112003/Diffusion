@@ -1,0 +1,21 @@
+{
+  "base_kind": "controlled_center_endpoints",
+  "diagnostic_only": true,
+  "mean": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "scale": [
+    1.7320508075688772,
+    1.7320508075688772,
+    1.7320508075688772
+  ],
+  "scale_clipping": [
+    0.25,
+    4.0
+  ],
+  "minimum_base_landmark_distance": 1.0,
+  "certified_coordinate_radius": 1.0,
+  "radius_basis": "maximum encoded norm at center and three endpoints; affine on each arm"
+}

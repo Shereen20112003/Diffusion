@@ -1,0 +1,19 @@
+aggregation,comparator,primary_minus_comparator_integrated_tv,primary_minus_comparator_integrated_w2,scenario,seed,threshold
+"RMS across conditions, then mean across evaluation draws",x_ignored_coordinate_ddpm_gaussian_frechet,0.13416001542083084,0.14511820100731515,S1_varying_atom,100,0.0
+"RMS across conditions, then mean across evaluation draws",x_ignored_coordinate_ddpm_gaussian_frechet,0.12374334875416415,0.1450662022050076,S1_varying_atom,100,0.0025
+"RMS across conditions, then mean across evaluation draws",x_ignored_coordinate_ddpm_gaussian_frechet,0.11332668208749752,0.14506623570080335,S1_varying_atom,100,0.005
+"RMS across conditions, then mean across evaluation draws",x_ignored_coordinate_ddpm_gaussian_frechet,0.11332668208749752,0.1450969520966255,S1_varying_atom,100,0.01
+"RMS across conditions, then mean across evaluation draws",x_ignored_coordinate_ddpm_gaussian_frechet,0.11332668208749752,0.14482922705525553,S1_varying_atom,100,0.02
+"RMS across conditions, then mean across evaluation draws",x_ignored_coordinate_ddpm_gaussian_frechet,0.11332668208749752,0.14616739177837967,S1_varying_atom,100,0.05
+"RMS across conditions, then mean across evaluation draws",conditional_planar_ddpm_segment_projection,-0.33207668208749747,-0.2487049026166584,S1_varying_atom,100,0.0
+"RMS across conditions, then mean across evaluation draws",conditional_planar_ddpm_segment_projection,-0.3529100154208307,-0.24874366965990385,S1_varying_atom,100,0.0025
+"RMS across conditions, then mean across evaluation draws",conditional_planar_ddpm_segment_projection,-0.36332668208749735,-0.2487436361641081,S1_varying_atom,100,0.005
+"RMS across conditions, then mean across evaluation draws",conditional_planar_ddpm_segment_projection,-0.36332668208749735,-0.2487436361641081,S1_varying_atom,100,0.01
+"RMS across conditions, then mean across evaluation draws",conditional_planar_ddpm_segment_projection,-0.37895168208749747,-0.24885160531479483,S1_varying_atom,100,0.02
+"RMS across conditions, then mean across evaluation draws",conditional_planar_ddpm_segment_projection,-0.40499334875416404,-0.24888178372512654,S1_varying_atom,100,0.05
+"RMS across conditions, then mean across evaluation draws",conditional_empirical_gaussian_x_resampling,0.24395603097900556,0.18643087158847654,S1_varying_atom,100,0.0
+"RMS across conditions, then mean across evaluation draws",conditional_empirical_gaussian_x_resampling,0.22833103097900556,0.1863970237374098,S1_varying_atom,100,0.0025
+"RMS across conditions, then mean across evaluation draws",conditional_empirical_gaussian_x_resampling,0.21791436431233893,0.18639705723320554,S1_varying_atom,100,0.005
+"RMS across conditions, then mean across evaluation draws",conditional_empirical_gaussian_x_resampling,0.21791436431233893,0.18639705723320554,S1_varying_atom,100,0.01
+"RMS across conditions, then mean across evaluation draws",conditional_empirical_gaussian_x_resampling,0.21270603097900556,0.18639519199019156,S1_varying_atom,100,0.02
+"RMS across conditions, then mean across evaluation draws",conditional_empirical_gaussian_x_resampling,0.21270603097900556,0.1872797846774663,S1_varying_atom,100,0.05

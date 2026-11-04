@@ -1,0 +1,4 @@
+medoid_equals_frechet_mean,scenario,seed
+False,S0_no_atom,100
+True,S1_varying_atom,100
+False,S2_near_vertex_no_atom,100

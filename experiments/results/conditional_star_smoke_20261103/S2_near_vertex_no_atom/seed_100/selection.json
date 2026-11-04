@@ -1,0 +1,182 @@
+{
+  "conditional_coordinate_ddpm_gaussian_frechet": {
+    "history": [
+      {
+        "update": 20,
+        "training_loss": 3.13573956489563,
+        "validation_brier": 6.021484375,
+        "candidates": [
+          {
+            "h_ratio": 0.05,
+            "h": 0.09551877199599257,
+            "validation_brier": 6.30517578125
+          },
+          {
+            "h_ratio": 0.1,
+            "h": 0.19103754399198514,
+            "validation_brier": 6.38720703125
+          },
+          {
+            "h_ratio": 0.2,
+            "h": 0.3820750879839703,
+            "validation_brier": 6.03369140625
+          },
+          {
+            "h_ratio": 0.4,
+            "h": 0.7641501759679405,
+            "validation_brier": 6.021484375
+          }
+        ]
+      },
+      {
+        "update": 40,
+        "training_loss": 3.216296434402466,
+        "validation_brier": 6.4248046875,
+        "candidates": [
+          {
+            "h_ratio": 0.05,
+            "h": 0.09551877199599257,
+            "validation_brier": 6.5654296875
+          },
+          {
+            "h_ratio": 0.1,
+            "h": 0.19103754399198514,
+            "validation_brier": 6.556640625
+          },
+          {
+            "h_ratio": 0.2,
+            "h": 0.3820750879839703,
+            "validation_brier": 6.4931640625
+          },
+          {
+            "h_ratio": 0.4,
+            "h": 0.7641501759679405,
+            "validation_brier": 6.4248046875
+          }
+        ]
+      }
+    ],
+    "validation_brier": 6.021484375,
+    "selected": 0.4,
+    "fit_seconds": 0.23979160003364086,
+    "optimization_seconds": 0.17653600010089576,
+    "validation_seconds": 0.05686219991184771,
+    "parameter_count": 2884
+  },
+  "x_ignored_coordinate_ddpm_gaussian_frechet": {
+    "history": [
+      {
+        "update": 20,
+        "training_loss": 3.502061367034912,
+        "validation_brier": 6.17333984375,
+        "candidates": [
+          {
+            "h_ratio": 0.05,
+            "h": 0.09551877199599257,
+            "validation_brier": 6.44921875
+          },
+          {
+            "h_ratio": 0.1,
+            "h": 0.19103754399198514,
+            "validation_brier": 6.544921875
+          },
+          {
+            "h_ratio": 0.2,
+            "h": 0.3820750879839703,
+            "validation_brier": 6.23828125
+          },
+          {
+            "h_ratio": 0.4,
+            "h": 0.7641501759679405,
+            "validation_brier": 6.17333984375
+          }
+        ]
+      },
+      {
+        "update": 40,
+        "training_loss": 3.319445848464966,
+        "validation_brier": 6.2568359375,
+        "candidates": [
+          {
+            "h_ratio": 0.05,
+            "h": 0.09551877199599257,
+            "validation_brier": 6.56005859375
+          },
+          {
+            "h_ratio": 0.1,
+            "h": 0.19103754399198514,
+            "validation_brier": 6.515625
+          },
+          {
+            "h_ratio": 0.2,
+            "h": 0.3820750879839703,
+            "validation_brier": 6.2568359375
+          },
+          {
+            "h_ratio": 0.4,
+            "h": 0.7641501759679405,
+            "validation_brier": 6.26025390625
+          }
+        ]
+      }
+    ],
+    "validation_brier": 6.17333984375,
+    "selected": 0.4,
+    "fit_seconds": 0.23865930014289916,
+    "optimization_seconds": 0.1800400004722178,
+    "validation_seconds": 0.051319800317287445,
+    "parameter_count": 2884
+  },
+  "conditional_planar_ddpm_segment_projection": {
+    "history": [
+      {
+        "update": 20,
+        "training_loss": 2.217820167541504,
+        "validation_brier": 8.13427734375,
+        "candidates": [
+          {
+            "validation_brier": 8.13427734375
+          }
+        ]
+      },
+      {
+        "update": 40,
+        "training_loss": 1.7905774116516113,
+        "validation_brier": 8.01025390625,
+        "candidates": [
+          {
+            "validation_brier": 8.01025390625
+          }
+        ]
+      }
+    ],
+    "validation_brier": 8.01025390625,
+    "selected": null,
+    "fit_seconds": 0.21426700009033084,
+    "optimization_seconds": 0.17185299936681986,
+    "validation_seconds": 0.038033900083974004,
+    "parameter_count": 2563
+  },
+  "conditional_empirical_gaussian_x_resampling": {
+    "candidates": [
+      {
+        "x_bandwidth": 0.05,
+        "validation_brier": 3.90869140625
+      },
+      {
+        "x_bandwidth": 0.1,
+        "validation_brier": 5.490234375
+      },
+      {
+        "x_bandwidth": 0.2,
+        "validation_brier": 5.37353515625
+      },
+      {
+        "x_bandwidth": 0.4,
+        "validation_brier": 5.986328125
+      }
+    ],
+    "selected": 0.05,
+    "fit_seconds": 0.014955600025132298
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "output": "C:\\Users\\t-sheanand\\OneDrive - Microsoft\\Desktop\\Diffusion\\experiments\\results\\conditional_star_smoke_20261103",
+  "scenarios": [
+    "S0_no_atom"
+  ],
+  "seeds": [
+    100
+  ],
+  "smoke": true,
+  "second_stage": false,
+  "max_seconds": 480.0,
+  "reference_size": 48,
+  "train_size": 128,
+  "validation_size": 48,
+  "validation_conditions": 8,
+  "validation_draws": 16,
+  "test_conditions": 3,
+  "eval_size": 32,
+  "probability_size": 64,
+  "evaluation_draws": 1,
+  "updates": 40,
+  "decoder_updates": 40,
+  "checkpoint_every": 20,
+  "timesteps": 12,
+  "batch_size": 32,
+  "width": 32,
+  "threads": 2,
+  "x_bandwidths": [
+    0.05,
+    0.1,
+    0.2,
+    0.4
+  ],
+  "perturbations": [
+    0.0,
+    0.02,
+    0.1
+  ],
+  "experiment": "conditional_metric_star_pilot",
+  "status": "smoke_development_validation",
+  "started_utc": "2026-11-03T06:47:13.717811+00:00",
+  "source_sha256": {
+    "conditional_star.py": "21c782b5a5473747375010a0bbbe768caaf567b7020d76c9793d490fa63431c7",
+    "conditional_star_models.py": "1e545afa0b476b444f603d9738a96423b65700aef570fa53fa7f2bb920152489",
+    "run_conditional_star.py": "21f03273c03777f04078ded1b7ec24b7b24acc45be19184f07cf6985cf84dd90",
+    "metric_spaces.py": "f8de385598ab4d677ef3311302bfe6b70fa52e48bb09a814860a0a97f5fe2067",
+    "run_experiments.py": "fd77fc9f72ba44578c734a681926d122671a2c86b92c25ff4348d944aec27fd1"
+  },
+  "environment": {
+    "python": "3.12.10",
+    "torch": "2.14.1+cpu",
+    "numpy": "2.5.4",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "thresholds": [
+    0.0,
+    0.0025,
+    0.005,
+    0.01,
+    0.02,
+    0.05
+  ],
+  "h_ratios": [
+    0.05,
+    0.1,
+    0.2,
+    0.4
+  ],
+  "validation_event_radius_grid": [
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "validation_score": "sum of Brier losses for center/arm labels and arm-radius events; raw outputs only",
+  "validation_selection": "checkpoint and h selected jointly using held-out pairs, no test law",
+  "probability_mc_uncertainty": "binomial pointwise standard errors; not training uncertainty",
+  "schedule": {
+    "type": "linear_beta",
+    "start": 0.0001,
+    "end": 0.08,
+    "reverse_variance": "posterior",
+    "prediction": "unbounded_epsilon",
+    "time_probability": "uniform over all discrete forward steps"
+  },
+  "optimizer": {
+    "name": "Adam",
+    "learning_rate": 0.001,
+    "randomness": "initialization and optimizer draws use separate seeded streams"
+  },
+  "appendix_j": {
+    "implemented": false,
+    "reason": "exact cited revised manuscript unavailable",
+    "practical_sampler_not_certified": true
+  },
+  "deferred": [
+    "oracle-denoiser quadrature",
+    "Appendix-J aligned sampler"
+  ],
+  "second_stage_executed": false,
+  "streams": {
+    "reference": 1151922698,
+    "training": 927555583,
+    "validation": 239401490
+  }
+}

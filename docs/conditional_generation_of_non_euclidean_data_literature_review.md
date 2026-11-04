@@ -482,3 +482,20 @@ experiments to design, not results or proven literature gaps.
 Saved experimental evidence is reported separately in
 [Experimental Results and Completion Status](experimental_results_and_completion_status.md). No training
 was restarted for this literature review or results inspection.
+# 2026-11-03 conditional metric-star implementation addendum
+
+The subsequent [conditional metric-star pilot](conditional_metric_star_pilot.md)
+implements a new nonsmooth-response smoke experiment, separate from the
+unconditional results discussed below. Full conditional benchmark runs and
+second-stage ablation studies have not been executed.
+
+The newly supplied [Minimax Rates for Conditional Generative Learning under
+Wasserstein Loss](https://arxiv.org/abs/2610.35490), arXiv:2610.35490v1
+(submitted 2026-10-26), was checked at abstract level on 2026-11-03. It studies
+minimax estimation of conditional output laws under integrated Wasserstein loss,
+with Holder-continuous laws and unrestricted covariate distributions. Its
+higher-Wasserstein-order extensions have additional response-density and
+integrability assumptions. It is a relevant theory comparison, not a verified
+tripod/atomic-response baseline implementation, and does not establish novelty
+for simply conditioning a DDPM on X. Full theorem-to-theorem comparison remains
+to be done using the complete paper and revised manuscript.

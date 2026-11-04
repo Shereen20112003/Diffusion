@@ -1,10 +1,10 @@
 # Generative Distribution Learning in Metric Spaces
 
-Reference implementation and saved experimental records for a distance-coordinate diffusion study on metric-valued data. The repository accompanies an unpublished manuscript. It is not a claim that the method is novel, and conditional generation has not been implemented.
+Reference implementation and saved experimental records for a distance-coordinate diffusion study on metric-valued data. The repository accompanies an unpublished manuscript. It is not a claim that the method is novel. Conditional metric-star generation is implemented with a development smoke run, not a completed five-seed conditional benchmark.
 
 ## Status
 
-The completed scientific records are the five-seed unconditional studies of two moons and eight Gaussians. One sphere seed is complete. The fixed-star and distribution-valued studies were stopped before completion. The conditional-generation documents are a literature assessment and an experimental protocol, not experimental results.
+The completed scientific records are the five-seed unconditional studies of two moons and eight Gaussians. One sphere seed is complete. The original unconditional fixed-star and distribution-valued studies were stopped before completion. The separate conditional metric-star pilot now has implementation, tests, and a single-seed smoke record; full-budget conditional training and second-stage ablation studies have not been run.
 
 ## Repository contents
 
@@ -18,11 +18,42 @@ ZIP, the local Python environment, and Python caches are intentionally excluded.
 - [Latest two-moons plot](experiments/results/spatial_diagnostic/two_moons/comparison_updates_10000.png)
 - [Conditional Generation of Non-Euclidean Data: Literature Review and Contribution Assessment](docs/conditional_generation_of_non_euclidean_data_literature_review.md)
 - [Conditional Generation of Metric-Valued Data: Experimental Protocol (design only; no training)](docs/conditional_generation_experimental_protocol.md)
+- [Conditional metric-star pilot: scenarios, methods, budgets, and execution guide](docs/conditional_metric_star_pilot.md)
+- [Conditional metric-star smoke validation and completion status](docs/conditional_metric_star_pilot_results.md)
 
 The saved runs are preserved as produced, including smoke tests and the
 interrupted plain-input diagnostic. Smoke tests are not scientific results;
 the remaining runs are exploratory pilots or development-validation studies,
-not final paper results. Conditional generation has not yet been implemented.
+not final paper results. The conditional metric-star smoke is likewise a
+development-validation record, not evidence of conditional-law recovery.
+
+## Conditional metric-star pilot
+
+**Latest decoder-only diagnostic (2026-11-04):**
+[Results, figures, and meeting explanation](docs/tripod_decoder_debug_meeting_20261104.md).
+With frozen references and true coordinates, the original 13-to-2 center
+discrepancy is **0 retained true centers plus 2 false positives**. The follow-up
+uses 2048 held-out responses at each of three conditions in S0/S1/S2, tests
+bandwidth and balanced-reference controls, and runs no DDPM.
+
+The separate `experiments\run_conditional_star.py` implements the named
+`S0_no_atom`, `S1_varying_atom`, and `S2_near_vertex_no_atom` scenarios.
+It compares a conditional coordinate DDPM with exact Gaussian Frechet
+reconstruction, a projected conditional planar DDPM, conditional empirical
+resampling, and an X-ignored control. Oracle and perturbed-coordinate
+diagnostics, full-vertex threshold sensitivity, intrinsic assignment W2,
+seven-category TV, atom errors, reference records, and plots are included.
+
+```powershell
+& .\.venv\Scripts\python.exe .\experiments\run_conditional_star.py --smoke --max-seconds 480 --output .\experiments\results\conditional_metric_star_new_smoke
+```
+
+Second-stage learned weights, projected MLP, six/twelve landmarks,
+Frechet-mean-base sensitivity, and a label-aware categorical/radial comparator
+are opt-in via `--second-stage`; their experimental studies are not executed.
+The practical DDPM is not claimed to be Appendix-J aligned or theoretically
+certified. See the [complete guide](docs/conditional_metric_star_pilot.md)
+before launching larger runs.
 
 ## Planar experimental pilot
 

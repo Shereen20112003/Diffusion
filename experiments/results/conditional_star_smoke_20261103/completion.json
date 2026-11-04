@@ -1,0 +1,12 @@
+{
+  "status": "smoke_development_validation",
+  "complete": true,
+  "row_count": 1899,
+  "wall_seconds": 48.85706560011022,
+  "independent_training_seeds": [
+    100
+  ],
+  "second_stage_executed": false,
+  "medoid_frechet_mean_coincidence_frequency": 0.3333333333333333,
+  "scientific_claim": "none; smoke completion verifies execution, not statistical accuracy"
+}

@@ -1,0 +1,63 @@
+{
+  "base_kind": "medoid",
+  "base": [
+    0.0,
+    0.10367616400408412,
+    0.0
+  ],
+  "medoid_index": 1,
+  "medoid": [
+    0.0,
+    0.10367616400408412,
+    0.0
+  ],
+  "base_equals_medoid": true,
+  "empirical_frechet_mean": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "medoid_equals_frechet_mean": false,
+  "forced_landmark_changes": [],
+  "landmark_indices": [
+    45,
+    22,
+    11
+  ],
+  "landmarks": [
+    [
+      0.9619707272561799,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.9002334571928564
+    ],
+    [
+      0.0,
+      0.7841219889369847,
+      0.0
+    ]
+  ],
+  "reference_count": 48,
+  "center_multiplicity": 0,
+  "mean": [
+    -0.02069696864822077,
+    -0.05279485465831562,
+    -0.26999519137477085
+  ],
+  "scale": [
+    0.5105097731827359,
+    0.490360654435946,
+    0.5325135760487936
+  ],
+  "scale_clipping": [
+    0.25,
+    4.0
+  ],
+  "minimum_base_landmark_distance": 0.6804458249329006,
+  "certified_coordinate_radius": 3.2707975893075956,
+  "radius_basis": "maximum encoded norm at center and three endpoints; affine on each arm"
+}

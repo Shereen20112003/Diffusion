@@ -1,0 +1,19 @@
+aggregation,comparator,primary_minus_comparator_integrated_tv,primary_minus_comparator_integrated_w2,scenario,seed,threshold
+"RMS across conditions, then mean across evaluation draws",x_ignored_coordinate_ddpm_gaussian_frechet,-0.10623976731409868,-0.0425766460253576,S2_near_vertex_no_atom,100,0.0
+"RMS across conditions, then mean across evaluation draws",x_ignored_coordinate_ddpm_gaussian_frechet,-0.11144810064743199,-0.04257182952779867,S2_near_vertex_no_atom,100,0.0025
+"RMS across conditions, then mean across evaluation draws",x_ignored_coordinate_ddpm_gaussian_frechet,-0.10103143398076536,-0.042572757627415,S2_near_vertex_no_atom,100,0.005
+"RMS across conditions, then mean across evaluation draws",x_ignored_coordinate_ddpm_gaussian_frechet,-0.10623976731409868,-0.042546461485358816,S2_near_vertex_no_atom,100,0.01
+"RMS across conditions, then mean across evaluation draws",x_ignored_coordinate_ddpm_gaussian_frechet,-0.10416666666666663,-0.042734858856534996,S2_near_vertex_no_atom,100,0.02
+"RMS across conditions, then mean across evaluation draws",x_ignored_coordinate_ddpm_gaussian_frechet,-0.09375,-0.04185566919571948,S2_near_vertex_no_atom,100,0.05
+"RMS across conditions, then mean across evaluation draws",conditional_planar_ddpm_segment_projection,-0.4250102326859013,-0.47394623061987606,S2_near_vertex_no_atom,100,0.0
+"RMS across conditions, then mean across evaluation draws",conditional_planar_ddpm_segment_projection,-0.41459356601923464,-0.4739430608517756,S2_near_vertex_no_atom,100,0.0025
+"RMS across conditions, then mean across evaluation draws",conditional_planar_ddpm_segment_projection,-0.3937602326859013,-0.4739389871583505,S2_near_vertex_no_atom,100,0.005
+"RMS across conditions, then mean across evaluation draws",conditional_planar_ddpm_segment_projection,-0.3989685660192347,-0.47402708670191107,S2_near_vertex_no_atom,100,0.01
+"RMS across conditions, then mean across evaluation draws",conditional_planar_ddpm_segment_projection,-0.36043713203846933,-0.4740615379835006,S2_near_vertex_no_atom,100,0.02
+"RMS across conditions, then mean across evaluation draws",conditional_planar_ddpm_segment_projection,-0.34066593074360524,-0.4743902368939255,S2_near_vertex_no_atom,100,0.05
+"RMS across conditions, then mean across evaluation draws",conditional_empirical_gaussian_x_resampling,0.13329240258972816,0.02650544337154201,S2_near_vertex_no_atom,100,0.0
+"RMS across conditions, then mean across evaluation draws",conditional_empirical_gaussian_x_resampling,0.1332924025897282,0.02654681795548655,S2_near_vertex_no_atom,100,0.0025
+"RMS across conditions, then mean across evaluation draws",conditional_empirical_gaussian_x_resampling,0.1541257359230615,0.026567288327126792,S2_near_vertex_no_atom,100,0.005
+"RMS across conditions, then mean across evaluation draws",conditional_empirical_gaussian_x_resampling,0.12808406925639484,0.02656955146836465,S2_near_vertex_no_atom,100,0.01
+"RMS across conditions, then mean across evaluation draws",conditional_empirical_gaussian_x_resampling,0.12287573592306153,0.026398808399089785,S2_near_vertex_no_atom,100,0.02
+"RMS across conditions, then mean across evaluation draws",conditional_empirical_gaussian_x_resampling,0.1301571699038268,0.027663302405063622,S2_near_vertex_no_atom,100,0.05

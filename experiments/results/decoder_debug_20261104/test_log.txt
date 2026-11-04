@@ -1,0 +1,11 @@
+S1_varying_atom, seed 100: fitting conditional_coordinate_ddpm_gaussian_frechet
+S1_varying_atom, seed 100: fitting conditional_coordinate_ddpm_gaussian_frechet__medoid_k6
+S1_varying_atom, seed 100: fitting conditional_coordinate_ddpm_gaussian_frechet__medoid_k12
+S1_varying_atom, seed 100: fitting conditional_coordinate_ddpm_gaussian_frechet__frechet_base_k3
+S1_varying_atom, seed 100: fitting X-ignored control
+S1_varying_atom, seed 100: fitting direct planar comparator
+.................................................
+----------------------------------------------------------------------
+Ran 49 tests in 7.824s
+
+OK
